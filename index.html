@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12213b">
+  <meta name="description" content="Funeraria La Orquídea en Ibarra. Atención 24 horas, planes de previsión, cremación y acompañamiento humano para las familias de Imbabura.">
+  <title>Funeraria La Orquídea | Acompañamiento con dignidad</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #12213b;
+      --navy-deep: #0b172b;
+      --gold: #c5a35b;
+      --gold-light: #e8d8ad;
+      --cream: #f8f6f1;
+      --ink: #263044;
+      --muted: #687184;
+      --white: #fff;
+      --shadow: 0 18px 55px rgba(18, 33, 59, .12);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button { font: inherit; }
+    .container { width: min(1160px, calc(100% - 44px)); margin-inline: auto; }
+
+    .topbar {
+      padding: 8px 0;
+      color: rgba(255,255,255,.88);
+      background: var(--navy-deep);
+      font-size: .78rem;
+      letter-spacing: .035em;
+    }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .topbar a { text-decoration: none; }
+    .topbar a:hover { color: var(--gold-light); }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid rgba(18,33,59,.08);
+      backdrop-filter: blur(12px);
+    }
+    .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--navy); }
+    .brand img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; }
+    .brand-name { display: block; font-family: var(--serif); font-size: 1.04rem; font-weight: 700; letter-spacing: .035em; line-height: 1.1; }
+    .brand-caption { display: block; margin-top: 5px; color: var(--muted); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); }
+    .nav-links a { color: var(--navy); font-size: .82rem; font-weight: 650; text-decoration: none; }
+    .nav-links a:hover { color: #9c792f; }
+    .menu-toggle { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.5rem; cursor: pointer; }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .045em;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-gold { color: var(--navy-deep); background: var(--gold); box-shadow: 0 9px 20px rgba(197,163,91,.2); }
+    .button-gold:hover { background: #d5b875; }
+    .button-outline { color: var(--white); border-color: rgba(255,255,255,.58); background: transparent; }
+    .button-outline:hover { background: rgba(255,255,255,.12); }
+    .button-navy { color: var(--white); background: var(--navy); }
+
+    .hero {
+      position: relative;
+      min-height: 640px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--navy) url("Catalogo/Fotos/Sala%20de%20Velaciones%20foto.jpeg") center center / cover no-repeat;
+    }
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, rgba(9,20,39,.9) 0%, rgba(12,26,49,.77) 44%, rgba(12,26,49,.14) 100%);
+    }
+    .hero-content { position: relative; max-width: 650px; padding: 92px 0 112px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 12px; color: var(--gold-light); font-size: .74rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow::before { width: 34px; height: 1px; background: currentColor; content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; }
+    .hero h1 { max-width: 620px; margin: 22px 0 18px; font-size: clamp(2.8rem, 6.2vw, 5.35rem); line-height: 1.04; letter-spacing: -.035em; }
+    .hero h1 em { color: var(--gold-light); font-weight: 400; }
+    .hero p { max-width: 520px; margin-bottom: 30px; color: rgba(255,255,255,.86); font-size: 1.04rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { margin-top: 38px; color: rgba(255,255,255,.78); font-size: .82rem; }
+    .hero-note strong { color: var(--gold-light); font-size: 1.02rem; }
+
+    .promise { position: relative; margin-top: -43px; z-index: 2; }
+    .promise-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); box-shadow: var(--shadow); }
+    .promise-item { min-height: 110px; display: flex; align-items: center; gap: 14px; padding: 22px; border-right: 1px solid #ece9e2; }
+    .promise-item:last-child { border-right: 0; }
+    .promise-icon { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; border: 1px solid var(--gold-light); border-radius: 50%; color: #98742d; font-size: 1.15rem; }
+    .promise-item strong { display: block; color: var(--navy); font-family: var(--serif); font-size: 1rem; font-weight: 600; }
+    .promise-item span:last-child { color: var(--muted); font-size: .74rem; }
+
+    .section { padding: 105px 0; }
+    .section-soft { background: var(--cream); }
+    .section-heading { max-width: 680px; margin: 0 auto 48px; text-align: center; }
+    .section-heading .eyebrow { color: #9a7938; }
+    .section-heading h2 { margin: 15px 0 12px; color: var(--navy); font-size: clamp(2.15rem, 4vw, 3.25rem); line-height: 1.12; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(40px, 8vw, 100px); }
+    .about-photo { position: relative; max-width: 510px; }
+    .about-photo img { width: 100%; aspect-ratio: 4 / 4.2; object-fit: cover; }
+    .photo-accent { position: absolute; z-index: -1; top: 22px; left: 22px; width: 100%; height: 100%; border: 1px solid var(--gold); }
+    .about-copy .eyebrow { color: #9a7938; }
+    .about-copy h2 { margin: 16px 0; color: var(--navy); font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.12; }
+    .about-copy p { color: var(--muted); }
+    .quote { margin: 25px 0; padding: 16px 0 16px 20px; border-left: 2px solid var(--gold); color: var(--navy); font-family: var(--serif); font-size: 1.2rem; font-style: italic; }
+    .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 16px; margin: 24px 0 30px; padding: 0; list-style: none; }
+    .check-list li { color: var(--navy); font-size: .87rem; }
+    .check-list li::before { margin-right: 9px; color: #a47f35; content: "✓"; font-weight: 800; }
+
+    .plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); align-items: stretch; gap: 18px; }
+    .plan-card { position: relative; display: flex; flex-direction: column; min-height: 405px; padding: 29px 24px 25px; border: 1px solid #e7e3da; background: var(--white); transition: transform .2s ease, box-shadow .2s ease; }
+    .plan-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .plan-card.featured { border: 1px solid var(--gold); box-shadow: 0 12px 35px rgba(18,33,59,.08); }
+    .plan-tag { position: absolute; top: -13px; right: 17px; padding: 4px 10px; color: var(--navy); background: var(--gold-light); font-size: .62rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .plan-card h3 { margin-bottom: 8px; color: var(--navy); font-family: var(--serif); font-size: 1.5rem; font-weight: 500; }
+    .plan-description { min-height: 49px; color: var(--muted); font-size: .8rem; }
+    .plan-price { margin: 7px 0 18px; color: var(--navy); font-family: var(--serif); font-size: 2.5rem; line-height: 1; }
+    .plan-price small { color: var(--muted); font-family: var(--sans); font-size: .68rem; }
+    .plan-card ul { flex: 1; margin: 0 0 24px; padding: 18px 0 0; border-top: 1px solid #eeeae2; list-style: none; }
+    .plan-card li { position: relative; margin-bottom: 10px; padding-left: 19px; color: #4f596a; font-size: .77rem; line-height: 1.45; }
+    .plan-card li::before { position: absolute; left: 0; color: #a47f35; content: "✓"; font-weight: 800; }
+    .plan-card .button { width: 100%; min-height: 44px; padding: 10px; font-size: .72rem; }
+    .plans-footnote { margin: 25px 0 0; color: var(--muted); font-size: .78rem; text-align: center; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { min-height: 190px; padding: 27px; border: 1px solid #e9e5dc; background: rgba(255,255,255,.7); }
+    .service-symbol { display: grid; width: 42px; height: 42px; margin-bottom: 19px; place-items: center; border-radius: 50%; color: var(--navy); background: #eee7d6; font-size: 1.2rem; }
+    .service-card h3 { margin-bottom: 7px; color: var(--navy); font-family: var(--serif); font-size: 1.24rem; font-weight: 500; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .82rem; }
+
+    .local-band { position: relative; overflow: hidden; color: var(--white); background: var(--navy); }
+    .local-band::after { position: absolute; top: -130px; right: -70px; width: 390px; height: 390px; border: 1px solid rgba(197,163,91,.35); border-radius: 50%; content: ""; box-shadow: 0 0 0 35px rgba(197,163,91,.035), 0 0 0 75px rgba(197,163,91,.025); }
+    .local-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-block: 62px; }
+    .local-inner .eyebrow { color: var(--gold-light); }
+    .local-inner h2 { margin: 14px 0 8px; font-size: clamp(2rem, 4vw, 3rem); }
+    .local-inner p { margin: 0; color: rgba(255,255,255,.75); }
+    .local-inner .button { flex: 0 0 auto; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: start; }
+    .contact-copy h2 { margin: 13px 0; color: var(--navy); font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.12; }
+    .contact-copy > p { color: var(--muted); }
+    .contact-details { display: grid; gap: 18px; margin-top: 30px; }
+    .contact-detail { display: flex; gap: 14px; align-items: flex-start; }
+    .contact-detail .service-symbol { width: 38px; height: 38px; flex: 0 0 38px; margin: 0; }
+    .contact-detail strong { display: block; color: var(--navy); font-size: .88rem; }
+    .contact-detail a, .contact-detail span { color: var(--muted); font-size: .86rem; text-decoration: none; }
+    .contact-detail a:hover { color: #98742d; }
+    .contact-card { padding: 34px; background: var(--cream); }
+    .contact-card h3 { margin-bottom: 9px; color: var(--navy); font-family: var(--serif); font-size: 1.6rem; font-weight: 500; }
+    .contact-card p { color: var(--muted); font-size: .88rem; }
+    .contact-card .button { width: 100%; margin-top: 8px; }
+    .contact-card .button + .button { margin-top: 11px; }
+
+    .footer { padding: 29px 0; color: rgba(255,255,255,.72); background: var(--navy-deep); font-size: .75rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer a { color: var(--gold-light); text-decoration: none; }
+
+    @media (max-width: 980px) {
+      .nav-cta { display: none; }
+      .plans-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+      .promise-grid { grid-template-columns: repeat(2, 1fr); }
+      .promise-item:nth-child(2) { border-right: 0; }
+      .promise-item:nth-child(-n+2) { border-bottom: 1px solid #ece9e2; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 34px, 540px); }
+      .topbar-inner { justify-content: center; }
+      .topbar-inner span:last-child { display: none; }
+      .nav-wrap { min-height: 72px; }
+      .brand img { width: 49px; height: 49px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 22px 18px;
+        border-top: 1px solid #eee;
+        background: var(--white);
+        box-shadow: 0 15px 22px rgba(18,33,59,.09);
+      }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 12px 0; border-bottom: 1px solid #f0eee9; }
+      .hero { min-height: 600px; background-position: 58% center; }
+      .hero::before { background: linear-gradient(90deg, rgba(9,20,39,.88), rgba(12,26,49,.64)); }
+      .hero-content { padding: 75px 0 90px; }
+      .hero h1 { font-size: clamp(2.7rem, 13vw, 4.4rem); }
+      .promise { margin-top: -30px; }
+      .promise-item { min-height: 95px; gap: 10px; padding: 15px 12px; }
+      .promise-icon { width: 35px; height: 35px; flex-basis: 35px; font-size: 1rem; }
+      .promise-item strong { font-size: .9rem; }
+      .promise-item span:last-child { font-size: .68rem; }
+      .section { padding: 76px 0; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo { width: calc(100% - 15px); max-width: none; }
+      .about-photo img { aspect-ratio: 1 / .87; }
+      .about-copy h2, .contact-copy h2 { font-size: 2.55rem; }
+      .plans-grid { gap: 20px 12px; }
+      .plan-card { min-height: 410px; padding: 24px 16px 18px; }
+      .plan-card h3 { font-size: 1.3rem; }
+      .plan-price { font-size: 2.2rem; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .service-card { min-height: 180px; padding: 19px 16px; }
+      .local-inner { align-items: flex-start; flex-direction: column; padding-block: 48px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 390px) {
+      .brand-name { font-size: .91rem; }
+      .brand-caption { font-size: .59rem; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .plan-card { min-height: auto; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .check-list { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Ibarra, Imbabura · Atención las 24 horas</span>
+      <span>Estamos contigo cuando más nos necesitas · <a href="tel:+593993130913">099 313 0913</a></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Funeraria La Orquídea, inicio">
+        <img src="Logos/logo%20funeraria%20la%20orquidea.jpg" alt="Logo Funeraria La Orquídea">
+        <span>
+          <span class="brand-name">Funeraria La Orquídea</span>
+          <span class="brand-caption">Respeto · amor · dignidad</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+      <nav class="nav-links" id="main-nav" aria-label="Navegación principal">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="button button-gold nav-cta" href="https://wa.me/593993130913?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20de%20Funeraria%20La%20Orqu%C3%ADdea">Estamos para ayudarte</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Acompañamiento humano en Imbabura</span>
+          <h1>Honramos la vida.<br><em>Acompañamos el recuerdo.</em></h1>
+          <p>Más que un servicio funerario, somos el apoyo que tu familia necesita: con respeto, amor y dignidad en cada paso.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="https://wa.me/593993130913?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios">Hablar con un asesor <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="#planes">Conocer los planes</a>
+          </div>
+          <div class="hero-note"><strong>Atención 24/7</strong> · Estamos contigo cuando más nos necesitas</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="promise" aria-label="Compromiso de servicio">
+      <div class="container promise-grid">
+        <div class="promise-item"><span class="promise-icon" aria-hidden="true">♡</span><span><strong>Acompañamiento</strong><span>Atención cercana y humana</span></span></div>
+        <div class="promise-item"><span class="promise-icon" aria-hidden="true">✧</span><span><strong>Atención 24 horas</strong><span>Siempre disponibles para ti</span></span></div>
+        <div class="promise-item"><span class="promise-icon" aria-hidden="true">⌂</span><span><strong>En Imbabura</strong><span>Al servicio de nuestra comunidad</span></span></div>
+        <div class="promise-item"><span class="promise-icon" aria-hidden="true">◇</span><span><strong>Previsión familiar</strong><span>Tranquilidad para el futuro</span></span></div>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <img src="Catalogo/Fotos/Familia.jfif" alt="Familia unida en un momento de cercanía" loading="lazy">
+          <span class="photo-accent" aria-hidden="true"></span>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">Nuestra esencia</span>
+          <h2>La tranquilidad de tu familia es nuestro compromiso.</h2>
+          <p>En La Orquídea creemos que cada familia merece orientación, respeto y compañía. Por eso cuidamos cada detalle y brindamos apoyo antes, durante y después de cada despedida.</p>
+          <div class="quote">“Acompañamos tu despedida con respeto, amor y dignidad.”</div>
+          <ul class="check-list">
+            <li>Atención personalizada</li>
+            <li>Asesoría permanente</li>
+            <li>Cobertura provincial</li>
+            <li>Convenios institucionales</li>
+          </ul>
+          <a class="button button-navy" href="#contacto">Conversemos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="planes">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Previsión familiar</span>
+          <h2>Planificar también es cuidar.</h2>
+          <p>Planes pensados para proteger la tranquilidad de tu familia y acompañarla con un servicio digno y profesional.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="plan-card">
+            <h3>Serenidad</h3>
+            <p class="plan-description">Una despedida digna, organizada y acompañada.</p>
+            <div class="plan-price">$699 <small>inversión</small></div>
+            <ul>
+              <li>Sala de velación por 24 horas</li>
+              <li>Cofre de madera lineal</li>
+              <li>Preparación y dos arreglos florales</li>
+              <li>Cafetería, traslado local y autocarroza</li>
+              <li>Fotografía tamaño A4, libro de condolencias y asesoría en trámites</li>
+            </ul>
+            <a class="button button-navy" href="https://wa.me/593993130913?text=Hola%2C%20quisiera%20conocer%20el%20Plan%20Serenidad">Consultar este plan</a>
+          </article>
+          <article class="plan-card featured">
+            <span class="plan-tag">Acompañamiento especial</span>
+            <h3>Armonía</h3>
+            <p class="plan-description">Más calidez y atención para una ceremonia significativa.</p>
+            <div class="plan-price">$999 <small>inversión</small></div>
+            <ul>
+              <li>Todo lo incluido en el Plan Serenidad</li>
+              <li>Fotografía enmarcada</li>
+              <li>Un arreglo floral adicional</li>
+              <li>Rosario y servicio religioso</li>
+              <li>Atención preferencial</li>
+            </ul>
+            <a class="button button-navy" href="https://wa.me/593993130913?text=Hola%2C%20quisiera%20conocer%20el%20Plan%20Armon%C3%ADa">Consultar este plan</a>
+          </article>
+          <article class="plan-card">
+            <h3>Legado</h3>
+            <p class="plan-description">Un homenaje personalizado, con coordinación integral.</p>
+            <div class="plan-price">$1.299 <small>inversión</small></div>
+            <ul>
+              <li>Todo lo incluido en el Plan Armonía</li>
+              <li>Tanatopraxia profesional</li>
+              <li>Tributo musical de despedida</li>
+              <li>Arreglo floral premium</li>
+              <li>Cobertura ampliada de traslado</li>
+            </ul>
+            <a class="button button-navy" href="https://wa.me/593993130913?text=Hola%2C%20quisiera%20conocer%20el%20Plan%20Legado">Consultar este plan</a>
+          </article>
+          <article class="plan-card">
+            <h3>Trascendencia</h3>
+            <p class="plan-description">Una alternativa integral para familias que optan por la cremación.</p>
+            <div class="plan-price">$1.499 <small>inversión</small></div>
+            <ul>
+              <li>Sala de velación por 24 horas</li>
+              <li>Preparación, formolización, flores y cafetería</li>
+              <li>Fotografía enmarcada y libro de condolencias</li>
+              <li>Asesoría y trámites de cremación</li>
+              <li>Traslado al crematorio y cremación</li>
+              <li>Urna cineraria y certificado</li>
+            </ul>
+            <a class="button button-navy" href="https://wa.me/593993130913?text=Hola%2C%20quisiera%20conocer%20el%20Plan%20Trascendencia">Consultar este plan</a>
+          </article>
+        </div>
+        <p class="plans-footnote">Nuestro equipo puede orientarte sobre los beneficios y condiciones de cada plan. Escríbenos para recibir información.</p>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Servicios integrales</span>
+          <h2>Estamos para acompañarte en cada detalle.</h2>
+          <p>Un equipo profesional brinda orientación y apoyo para que cada despedida se realice con respeto y dignidad.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">⌂</span><h3>Sala de velación</h3><p>Espacios cómodos para acompañar a la familia, con atención las 24 horas.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">✧</span><h3>Cremación</h3><p>Asesoría, trámites y acompañamiento familiar durante todo el proceso.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">➤</span><h3>Traslados nacionales</h3><p>Coordinación profesional de traslados dentro del territorio nacional.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">❀</span><h3>Tanatopraxia y preparación</h3><p>Procedimientos especializados de conservación, formolización y presentación.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">❁</span><h3>Flores y capillas ardientes</h3><p>Arreglos florales y acondicionamiento para ceremonias de despedida.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">♧</span><h3>Cafetería y autocarroza</h3><p>Atención para familiares durante la velación y vehículos especializados para el traslado.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">♡</span><h3>Asesoría legal y trámites</h3><p>Orientación y acompañamiento en la documentación relacionada con el servicio.</p></article>
+          <article class="service-card"><span class="service-symbol" aria-hidden="true">✧</span><h3>Servicio religioso y condolencias</h3><p>Coordinación de ceremonias según las creencias y necesidades de cada familia.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="local-band">
+      <div class="container local-inner">
+        <div>
+          <span class="eyebrow">Cerca de ti, en Imbabura</span>
+          <h2>Cuando nos necesites, aquí estaremos.</h2>
+          <p>Atención inmediata, humana y profesional las 24 horas.</p>
+        </div>
+        <a class="button button-gold" href="tel:+593993130913">Llamar ahora · 099 313 0913</a>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow" style="color:#9a7938">Hablemos</span>
+          <h2>Estamos contigo cuando más nos necesitas.</h2>
+          <p>Si necesitas orientación o deseas conocer nuestros planes de previsión, comunícate con nuestro equipo. Estamos para escucharte y ayudarte.</p>
+          <div class="contact-details">
+            <div class="contact-detail"><span class="service-symbol" aria-hidden="true">⌖</span><span><strong>Visítanos en Ibarra</strong><a href="https://maps.google.com/?q=Gonzalo+G%C3%B3mez+Jurado+y+Luis+Vargas+Torres%2C+Ibarra%2C+Ecuador">Gonzalo Gómez Jurado y Luis Vargas Torres</a></span></div>
+            <div class="contact-detail"><span class="service-symbol" aria-hidden="true">☎</span><span><strong>Llámanos, atención 24/7</strong><a href="tel:+593993130913">099 313 0913</a> · <a href="tel:+593997138260">099 713 8260</a></span></div>
+            <div class="contact-detail"><span class="service-symbol" aria-hidden="true">◷</span><span><strong>Disponibles para ti</strong><span>Atención las 24 horas, todos los días</span></span></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>¿En qué podemos ayudarte?</h3>
+          <p>Escríbenos directamente por WhatsApp o llámanos. Nuestro equipo te atenderá con respeto y calidez.</p>
+          <a class="button button-navy" href="https://wa.me/593993130913?text=Hola%2C%20quisiera%20conversar%20con%20Funeraria%20La%20Orqu%C3%ADdea">Escribir por WhatsApp <span aria-hidden="true">→</span></a>
+          <a class="button button-gold" href="tel:+593997138260">Llamar al 099 713 8260</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Funeraria La Orquídea · Ibarra, Ecuador</span>
+      <span>“Acompañamos tu despedida con respeto, amor y dignidad.”</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector("#main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    mainNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+        menuToggle.textContent = "☰";
+      }
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
